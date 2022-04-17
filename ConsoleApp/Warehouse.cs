@@ -69,6 +69,7 @@ namespace ConsoleApp
         }
         public void print()
         {
+
             Console.Write($"Склад:\nТовар: ");
             if (product.Length > 0)
             {
@@ -82,17 +83,28 @@ namespace ConsoleApp
 
         public void cloakWarehouse(ref int time, int x)
         {
-            int i = 0;
-            while (i < x)
+            try
             {
-                time += 15;
-                i += station;
+                int i = 0;
+                while (i < x)
+                {
+                    time += 15;
+                    i += station;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine("Для продолжения нажмите ENTER.");
+                while (Console.ReadKey(true).Key != ConsoleKey.Enter) ;
             }
         }
 
         public void Poisk(string str)
         {
-            foreach (string element in product)
+            try
+            {
+                foreach (string element in product)
             {
                 if(string.Compare(element, str) == 0)
                 {
@@ -101,6 +113,13 @@ namespace ConsoleApp
                 }
             }
             Console.WriteLine($"{str} нет на складе.");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine("Для продолжения нажмите ENTER.");
+                while (Console.ReadKey(true).Key != ConsoleKey.Enter) ;
+            }
         }
     }
 }
