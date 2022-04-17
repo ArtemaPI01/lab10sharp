@@ -39,14 +39,31 @@ namespace ConsoleApp
             set { patronymic = value; }
         }
 
+
+
+
         public void enter()
         {
-            Console.Write("Введите имя: ");
-            name = Console.ReadLine();
-            Console.Write("Введите фамилию: ");
-            surname = Console.ReadLine();
-            Console.Write("Введите Отчество: ");
-            patronymic = Console.ReadLine();
+            bool a = true;
+            while (a)
+            {
+                try
+                {
+                    Console.Write("Введите имя: ");
+                    name = Console.ReadLine();
+                    Console.Write("Введите фамилию: ");
+                    surname = Console.ReadLine();
+                    Console.Write("Введите Отчество: ");
+                    patronymic = Console.ReadLine();
+                    a = false;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    Console.WriteLine("Для продолжения нажмите ENTER.");
+                    while (Console.ReadKey(true).Key != ConsoleKey.Enter) ;
+                }
+            }
         }
         public void print()
         {

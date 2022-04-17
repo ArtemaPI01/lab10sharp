@@ -58,11 +58,25 @@ namespace ConsoleApp
 
         public void enter()
         {
-            fio.enter();
-            Console.Write("Введите доходы: ");
-            income = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Введите расходы: ");
-            expenses = Convert.ToInt32(Console.ReadLine());
+            bool a = true;
+            while (a)
+            {
+                try
+                {
+                    fio.enter();
+                    Console.Write("Введите доходы: ");
+                    income = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("Введите расходы: ");
+                    expenses = Convert.ToInt32(Console.ReadLine());
+                    a = false;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    Console.WriteLine("Для продолжения нажмите ENTER.");
+                    while (Console.ReadKey(true).Key != ConsoleKey.Enter) ;
+                }
+            }
         }
         public void print()
         {

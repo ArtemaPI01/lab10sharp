@@ -46,12 +46,26 @@ namespace ConsoleApp
             get { return station; }
         }
 
-        public void enter()
+        public void Enter()
         {
-            Console.Write("Введите товар:");
-            product = Console.ReadLine().Split(' ');
-            Console.Write("Введите кол-во пунктов приема: ");
-            station = Convert.ToInt32(Console.ReadLine());
+            bool a = true;
+            while (a)
+            {
+                try
+                {
+                    Console.Write("Введите товар:");
+                    product = Console.ReadLine().Split(' ');
+                    Console.Write("Введите кол-во пунктов приема: ");
+                    station = Convert.ToInt32(Console.ReadLine());
+                    a = false;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    Console.WriteLine("Для продолжения нажмите ENTER.");
+                    while (Console.ReadKey(true).Key != ConsoleKey.Enter) ;
+                }
+            }
         }
         public void print()
         {

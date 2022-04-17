@@ -55,11 +55,25 @@ namespace ConsoleApp
 
         public void Enter()
         {
-            fio.enter();
-            Console.Write("Введите кол-во кассиров: ");
-            workers = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Введите кол-во касс: ");
-            count = Convert.ToInt32(Console.ReadLine());
+            bool a = true;
+            while (a)
+            {
+                try
+                {
+                    fio.enter();
+                    Console.Write("Введите кол-во кассиров: ");
+                    workers = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("Введите кол-во касс: ");
+                    count = Convert.ToInt32(Console.ReadLine());
+                    a = false;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    Console.WriteLine("Для продолжения нажмите ENTER.");
+                    while (Console.ReadKey(true).Key != ConsoleKey.Enter) ;
+                }
+            }
         }
         public void Print()
         {

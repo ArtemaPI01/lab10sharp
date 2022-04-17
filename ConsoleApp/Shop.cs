@@ -64,14 +64,28 @@ namespace ConsoleApp
         }
         public void enter()
         {
-            Console.Write("Введите название:");
-            name = Console.ReadLine();
-            Console.Write("Введите тип: ");
-            type = Console.ReadLine();
-            Console.Write("Введите улицу: ");
-            street = Console.ReadLine();
-            Console.Write("Введите время: ");
-            time = Console.ReadLine();
+            bool a = true;
+            while (a)
+            {
+                try
+                {
+                    Console.Write("Введите название:");
+                    name = Console.ReadLine();
+                    Console.Write("Введите тип: ");
+                    type = Console.ReadLine();
+                    Console.Write("Введите улицу: ");
+                    street = Console.ReadLine();
+                    Console.Write("Введите время: ");
+                    time = Console.ReadLine();
+                    a = false;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    Console.WriteLine("Для продолжения нажмите ENTER.");
+                    while (Console.ReadKey(true).Key != ConsoleKey.Enter) ;
+                }
+            }
         }
         public void print()
         {

@@ -20,7 +20,7 @@ namespace ConsoleApp
             }
             Shop.CountOfShop();
             Warehouse home = new Warehouse();
-            home.enter();
+            home.Enter();
             home.print();
             home.Poisk("AVS");
             int a = 20;
