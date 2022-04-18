@@ -57,6 +57,7 @@ namespace ConsoleApp
                     product = Console.ReadLine().Split(' ');
                     Console.Write("Введите кол-во пунктов приема: ");
                     station = Convert.ToInt32(Console.ReadLine());
+                    if (station < 0) throw new Exception("Отрицательное число.");
                     a = false;
                 }
                 catch (Exception e)
@@ -69,7 +70,6 @@ namespace ConsoleApp
         }
         public void print()
         {
-
             Console.Write($"Склад:\nТовар: ");
             if (product.Length > 0)
             {
@@ -91,6 +91,7 @@ namespace ConsoleApp
                     time += 15;
                     i += station;
                 }
+                if (time < 0) throw new Exception("Отрицательное число.");
             }
             catch (Exception e)
             {
@@ -102,9 +103,7 @@ namespace ConsoleApp
 
         public void Poisk(string str)
         {
-            try
-            {
-                foreach (string element in product)
+            foreach (string element in product)
             {
                 if(string.Compare(element, str) == 0)
                 {
@@ -112,14 +111,7 @@ namespace ConsoleApp
                     return;
                 }
             }
-            Console.WriteLine($"{str} нет на складе.");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                Console.WriteLine("Для продолжения нажмите ENTER.");
-                while (Console.ReadKey(true).Key != ConsoleKey.Enter) ;
-            }
+            Console.WriteLine($"{str} нет на складе.");       
         }
     }
 }

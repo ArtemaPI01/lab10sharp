@@ -66,8 +66,10 @@ namespace ConsoleApp
                     fio.enter();
                     Console.Write("Введите доходы: ");
                     income = Convert.ToInt32(Console.ReadLine());
+                    if (income < 0) throw new Exception("Отрицательное число.");
                     Console.Write("Введите расходы: ");
                     expenses = Convert.ToInt32(Console.ReadLine());
+                    if (income < 0) throw new Exception("Отрицательное число.");
                     a = false;
                 }
                 catch (Exception e)
