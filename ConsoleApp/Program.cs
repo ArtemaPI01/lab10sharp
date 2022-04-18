@@ -6,7 +6,8 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            try {
+            try
+            {
                 FIO fio = new FIO("A", "Б", "В");
                 Owner Alisher = new Owner(fio, 0, 0);
                 Alisher.enter();

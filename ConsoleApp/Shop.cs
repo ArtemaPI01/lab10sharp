@@ -89,19 +89,39 @@ namespace ConsoleApp
         }
         public void print()
         {
-            Console.WriteLine($"Название: {name}  Тип: {type}  Улица: {street}  Часы работы: {time}\n");
+            if (!Equals(time, null))
+            {
+                if (!Equals(name, null))
+                    Console.Write($"Название: {name}  ");
+                if (!Equals(type, null))
+                    Console.Write($"Тип: {type}  ");
+                if (!Equals(street, null))
+                    Console.Write($"  Улица: {street}  ");
+                Console.Write($"Часы работы: {time}\n");
+            }
+            else
+                Console.WriteLine("Нет информации о магазине.\n");
         }
         public void cloakShop()
         {
-            string[] subs = time.Split(':', '-');
-            int a = Convert.ToInt32(subs[2]) - Convert.ToInt32(subs[0]);
-            int b = Convert.ToInt32(subs[3]) - Convert.ToInt32(subs[1]);
-            if (b < 0)
+            try
             {
-                b+=60;
-                a--;
+                string[] subs = time.Split(':', '-');
+                int a = Convert.ToInt32(subs[2]) - Convert.ToInt32(subs[0]);
+                int b = Convert.ToInt32(subs[3]) - Convert.ToInt32(subs[1]);
+                if (b < 0)
+                {
+                    b+=60;
+                    a--;
+                }
+                Console.WriteLine($"Часы работы: {time}\nЧасы: {a}    Минуты: {b}");
             }
-            Console.WriteLine($"Часы работы: {time}\nЧасы: {a}    Минуты: {b}");
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine("Для продолжения нажмите ENTER.");
+                while (Console.ReadKey(true).Key != ConsoleKey.Enter) ;
+            }
         }
     }
 }

@@ -69,7 +69,7 @@ namespace ConsoleApp
                     if (income < 0) throw new Exception("Отрицательное число.");
                     Console.Write("Введите расходы: ");
                     expenses = Convert.ToInt32(Console.ReadLine());
-                    if (income < 0) throw new Exception("Отрицательное число.");
+                    if (expenses < 0) throw new Exception("Отрицательное число.");
                     a = false;
                 }
                 catch (Exception e)
