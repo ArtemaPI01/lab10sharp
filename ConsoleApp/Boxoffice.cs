@@ -63,8 +63,10 @@ namespace ConsoleApp
                     fio.enter();
                     Console.Write("Введите кол-во кассиров: ");
                     workers = Convert.ToInt32(Console.ReadLine());
+                    if (workers < 0) throw new Exception("Отрицательное число.");
                     Console.Write("Введите кол-во касс: ");
                     count = Convert.ToInt32(Console.ReadLine());
+                    if (count < 0) throw new Exception("Отрицательное число.");
                     a = false;
                 }
                 catch (Exception e)
@@ -77,18 +79,32 @@ namespace ConsoleApp
         }
         public void Print()
         {
-            Console.WriteLine("\nИнформация о кассе:\nФИО старшего кассира:");
-            fio.print();
+            Console.WriteLine("\nИнформация о кассе:");
+            if (!Equals(fio.Surname, null))
+            {
+                Console.WriteLine("ФИО старшего кассира:");
+                fio.print();
+            }
             Console.WriteLine($"Кассиры: {workers}  Кассы: {count}");
+
         }
         public void CloakBoxoffice(int x)
         {
-            int a;
-            if (count - workers < 0)
-                a = (x / count) * 2;
-            else
-                a = (x / workers) * 2;
-            Console.WriteLine($"\nВремя обслуживания {x} клиентов - {a} минут.\n");
+            try
+            {
+                int a;
+                if (count - workers < 0)
+                    a = (x / count) * 2;
+                else
+                    a = (x / workers) * 2;
+                Console.WriteLine($"\nВремя обслуживания {x} клиентов - {a} минут.\n");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine("Для продолжения нажмите ENTER.");
+                while (Console.ReadKey(true).Key != ConsoleKey.Enter) ;
+            }
         }
         public static Boxoffice operator +(Boxoffice a, Boxoffice b)
         {
