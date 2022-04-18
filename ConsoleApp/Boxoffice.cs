@@ -63,10 +63,10 @@ namespace ConsoleApp
                     fio.enter();
                     Console.Write("Введите кол-во кассиров: ");
                     workers = Convert.ToInt32(Console.ReadLine());
-                    if (workers < 0) throw new Exception("Отрицательное число.");
+                    if (workers < 0) throw new Exception("Ошибка! Отрицательное число.");
                     Console.Write("Введите кол-во касс: ");
                     count = Convert.ToInt32(Console.ReadLine());
-                    if (count < 0) throw new Exception("Отрицательное число.");
+                    if (count < 0) throw new Exception("Ошибка! Отрицательное число.");
                     a = false;
                 }
                 catch (Exception e)

@@ -71,12 +71,16 @@ namespace ConsoleApp
                 {
                     Console.Write("Введите название:");
                     name = Console.ReadLine();
+                    if (name == "") throw new Exception("Ошибка! Пустая строка.");
                     Console.Write("Введите тип: ");
                     type = Console.ReadLine();
+                    if (type == "") throw new Exception("Ошибка! Пустая строка.");
                     Console.Write("Введите улицу: ");
                     street = Console.ReadLine();
+                    if (street == "") throw new Exception("Ошибка! Пустая строка.");
                     Console.Write("Введите время: ");
                     time = Console.ReadLine();
+                    if (time == "") throw new Exception("Ошибка! Пустая строка.");
                     a = false;
                 }
                 catch (Exception e)
@@ -114,6 +118,8 @@ namespace ConsoleApp
                     b+=60;
                     a--;
                 }
+                if (a > 24 || a < 0)
+                    throw new Exception("Ошибка! Неправильно написано время.");
                 Console.WriteLine($"Часы работы: {time}\nЧасы: {a}    Минуты: {b}");
             }
             catch (Exception e)

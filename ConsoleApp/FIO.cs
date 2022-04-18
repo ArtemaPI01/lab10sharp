@@ -51,10 +51,13 @@ namespace ConsoleApp
                 {
                     Console.Write("Введите имя: ");
                     name = Console.ReadLine();
+                    if (name == "") throw new Exception("Ошибка! Пустая строка.");
                     Console.Write("Введите фамилию: ");
                     surname = Console.ReadLine();
+                    if (surname == "") throw new Exception("Ошибка! Пустая строка.");
                     Console.Write("Введите Отчество: ");
                     patronymic = Console.ReadLine();
+                    if (patronymic == "") throw new Exception("Ошибка! Пустая строка.");
                     a = false;
                 }
                 catch (Exception e)

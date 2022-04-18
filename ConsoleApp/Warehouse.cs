@@ -57,7 +57,7 @@ namespace ConsoleApp
                     product = Console.ReadLine().Split(' ');
                     Console.Write("Введите кол-во пунктов приема: ");
                     station = Convert.ToInt32(Console.ReadLine());
-                    if (station < 0) throw new Exception("Отрицательное число.");
+                    if (station < 0) throw new Exception("Ошибка! Отрицательное число.");
                     a = false;
                 }
                 catch (Exception e)
@@ -91,7 +91,7 @@ namespace ConsoleApp
                     time += 15;
                     i += station;
                 }
-                if (time < 0) throw new Exception("Отрицательное число.");
+                if (time < 0) throw new Exception("Ошибка! Отрицательное число.");
             }
             catch (Exception e)
             {

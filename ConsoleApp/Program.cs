@@ -9,7 +9,7 @@ namespace ConsoleApp
             try
             {
                 FIO fio = new FIO("A", "Б", "В");
-                Owner Alisher = new Owner(fio, 0, 0);
+                Owner Alisher = new Owner();
                 Alisher.enter();
                 Alisher.print();
                 int N = 2;
